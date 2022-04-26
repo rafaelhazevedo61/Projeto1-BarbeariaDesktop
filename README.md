@@ -1,9 +1,6 @@
 # Projeto1-BarbeariaDesktop
 ________________________________________________________________________________________________________
 
-> V.1.0.0 - 26/04/2022
-- Commit inicial do projeto
-
 > V.1.1.0 - 26/04/2022
 - Criada a tela de login
 - Criada a classe de conexão com o banco de dados
@@ -13,3 +10,6 @@ ________________________________________________________________________________
 - Criada uma pasta onde serão armazenados os scripts de sql para criação das tabelas do projeto
 - Adicionada query sql de criação da tabela de usuarios
 - Adicionado o jar do postgresql
+
+> V.1.0.0 - 26/04/2022
+- Commit inicial do projeto
