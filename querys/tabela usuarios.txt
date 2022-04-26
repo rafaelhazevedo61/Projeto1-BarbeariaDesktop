@@ -1,0 +1,16 @@
+CREATE TABLE public.t_usuarios
+(
+    codusuario serial NOT NULL,
+    usuario character varying NOT NULL,
+    senha character varying NOT NULL,
+    nome character varying NOT NULL,
+    data_cadastro date NOT NULL,
+    quem_cadastrou character varying NOT NULL,
+    data_alteracao date NOT NULL,
+    quem_alterou character varying NOT NULL,
+    permissao integer NOT NULL,
+    PRIMARY KEY (codusuario)
+);
+
+ALTER TABLE public.t_usuarios
+    OWNER to postgres;
