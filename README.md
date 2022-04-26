@@ -1,10 +1,10 @@
 # Projeto1-BarbeariaDesktop
 ________________________________________________________________________________________________________
 
-> V.1.0 - 26/04/2022
+> V.1.0.0 - 26/04/2022
 - Commit inicial do projeto
 
-> V.1.1.0
+> V.1.1.0 - 26/04/2022
 - Criada a tela de login
 - Criada a classe de conexão com o banco de dados
 - Criada a classe de teste para a conexao (teste provisorio)
