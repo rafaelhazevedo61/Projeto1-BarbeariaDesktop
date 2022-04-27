@@ -19,7 +19,7 @@ public class FabricaDeConexao {
     
     private static Connection conexao;
     
-    private static final String URL_CONEXAO = "jdbc:postgresql://localhost:5432/ProjetoBarbearia";
+    private static final String URL_CONEXAO = "jdbc:postgresql://localhost:5432/Projeto1-Barbearia";
     private static final String USUARIO = "postgres";
     private static final String SENHA = "arisco2017";
     private static final String DRIVER = "org.postgresql.Driver";

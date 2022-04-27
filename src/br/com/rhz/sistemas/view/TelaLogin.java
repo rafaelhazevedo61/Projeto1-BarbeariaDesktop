@@ -5,17 +5,24 @@
  */
 package br.com.rhz.sistemas.view;
 
+import br.com.rhz.sistemas.controller.LoginController;
+import javax.swing.JPasswordField;
+import javax.swing.JTextField;
+
 /**
  *
  * @author Rafael
  */
 public class TelaLogin extends javax.swing.JFrame {
 
+    private final LoginController controller;
+
     /**
      * Creates new form TelaLogin
      */
     public TelaLogin() {
         initComponents();
+        controller = new LoginController(this);
     }
 
     /**
@@ -32,11 +39,11 @@ public class TelaLogin extends javax.swing.JFrame {
         jTextFieldUsuario = new javax.swing.JTextField();
         jSeparator1 = new javax.swing.JSeparator();
         jLabelUsuario = new javax.swing.JLabel();
-        jPasswordFieldSenha = new javax.swing.JPasswordField();
         jSeparator2 = new javax.swing.JSeparator();
         jLabelSenha = new javax.swing.JLabel();
         jButtonAcessar = new javax.swing.JButton();
         jButtonEsqueciSenha = new javax.swing.JButton();
+        jPasswordFieldSenha = new javax.swing.JPasswordField();
         jPanelImagem = new javax.swing.JPanel();
         jLabelFundoLogin = new javax.swing.JLabel();
 
@@ -63,13 +70,6 @@ public class TelaLogin extends javax.swing.JFrame {
         jLabelUsuario.setForeground(new java.awt.Color(255, 255, 255));
         jLabelUsuario.setText("Usuário");
 
-        jPasswordFieldSenha.setBackground(new java.awt.Color(102, 153, 255));
-        jPasswordFieldSenha.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jPasswordFieldSenha.setForeground(new java.awt.Color(255, 255, 255));
-        jPasswordFieldSenha.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        jPasswordFieldSenha.setToolTipText("Digite sua senha");
-        jPasswordFieldSenha.setBorder(null);
-
         jSeparator2.setForeground(new java.awt.Color(255, 255, 255));
         jSeparator2.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
 
@@ -85,6 +85,11 @@ public class TelaLogin extends javax.swing.JFrame {
         });
 
         jButtonEsqueciSenha.setText("Esqueci a Senha");
+
+        jPasswordFieldSenha.setBackground(new java.awt.Color(102, 153, 255));
+        jPasswordFieldSenha.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jPasswordFieldSenha.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        jPasswordFieldSenha.setBorder(null);
 
         javax.swing.GroupLayout jPanelDadosLoginLayout = new javax.swing.GroupLayout(jPanelDadosLogin);
         jPanelDadosLogin.setLayout(jPanelDadosLoginLayout);
@@ -102,9 +107,9 @@ public class TelaLogin extends javax.swing.JFrame {
                             .addComponent(jTextFieldUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabelSenha)
-                            .addComponent(jPasswordFieldSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(112, Short.MAX_VALUE))
+                            .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jPasswordFieldSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(122, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelDadosLoginLayout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
                 .addGroup(jPanelDadosLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -129,7 +134,7 @@ public class TelaLogin extends javax.swing.JFrame {
                 .addComponent(jPasswordFieldSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0)
                 .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jButtonAcessar, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jButtonEsqueciSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -170,6 +175,7 @@ public class TelaLogin extends javax.swing.JFrame {
 
     private void jButtonAcessarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAcessarActionPerformed
 
+        controller.acessar();
 
     }//GEN-LAST:event_jButtonAcessarActionPerformed
 
@@ -208,6 +214,23 @@ public class TelaLogin extends javax.swing.JFrame {
             }
         });
     }
+
+    public JPasswordField getjPasswordFieldSenha() {
+        return jPasswordFieldSenha;
+    }
+
+    public void setjPasswordFieldSenha(JPasswordField jPasswordFieldSenha) {
+        this.jPasswordFieldSenha = jPasswordFieldSenha;
+    }
+
+    public JTextField getjTextFieldUsuario() {
+        return jTextFieldUsuario;
+    }
+
+    public void setjTextFieldUsuario(JTextField jTextFieldUsuario) {
+        this.jTextFieldUsuario = jTextFieldUsuario;
+    }
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonAcessar;
