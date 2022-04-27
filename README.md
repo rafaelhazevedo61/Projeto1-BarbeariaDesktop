@@ -1,9 +1,11 @@
 # Projeto1-BarbeariaDesktop
 ________________________________________________________________________________________________________
 
-> V.1.2.0 - 26/04/2022
+> V.1.2.1 - 26/04/2022
+//Correções
 - Corrigido o nome da base de dados que havia sido configurado na clase de conexão
 - Trocado o campo de jTextFieldSenha pelo campo jPasswordFieldSenha
+//Adições
 - Criada a classe de LoginController.java no pacote controller
 - Criada a classe de UsuariosDAO.java no pacote dao
 - Criada a classe de Usuarios.java no pacote model
