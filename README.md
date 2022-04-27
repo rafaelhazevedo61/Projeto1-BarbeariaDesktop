@@ -1,7 +1,7 @@
 # Projeto1-BarbeariaDesktop
 ________________________________________________________________________________________________________
 
-> V.1.2.0
+> V.1.2.0 - 26/04/2022
 - Corrigido o nome da base de dados que havia sido configurado na clase de conexão
 - Trocado o campo de jTextFieldSenha pelo campo jPasswordFieldSenha
 - Criada a classe de LoginController.java no pacote controller
