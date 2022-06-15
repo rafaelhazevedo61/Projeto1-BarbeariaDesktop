@@ -1,6 +1,18 @@
 # Projeto1-BarbeariaDesktop
 ________________________________________________________________________________________________________
 
+> V.1.3.0 - 14/06/2022
+- Renomeada a classe LoginController para TelaLoginController
+- Renomeado o método verificarSeUsuarioExiste() na classe UsuariosDAO para autenticarUsuario()
+- Criada a classe TelaCadastrarUsuarioController
+- Criada a classe TelaPrincipalController
+- Criada a classe Data
+- Criada a view TelaUsuarioCadastrar
+- Criado o método cadastrarUsuario() na classe TelaCadastrarUsuarioController
+- Criado o método chamarTelaUsuarioCadastrar() na classe TelaPrincipalController
+- Criado o método cadastrarUsuario() na classe UsuariosDAO
+- Feita configuração do cadastro de usuario
+
 > V.1.2.0 - 26/04/2022
 - Corrigido o nome da base de dados que havia sido configurado na clase de conexão
 - Trocado o campo de jTextFieldSenha pelo campo jPasswordFieldSenha
