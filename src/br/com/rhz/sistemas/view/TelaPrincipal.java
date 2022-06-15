@@ -5,17 +5,24 @@
  */
 package br.com.rhz.sistemas.view;
 
+import br.com.rhz.sistemas.controller.TelaPrincipalController;
+import javax.swing.JDesktopPane;
+
 /**
  *
  * @author Rafael
  */
 public class TelaPrincipal extends javax.swing.JFrame {
 
+    private final TelaPrincipalController controller;
+    
     /**
      * Creates new form TelaPrincipal
      */
     public TelaPrincipal() {
         initComponents();
+        controller = new TelaPrincipalController(this);
+        
     }
 
     /**
@@ -30,7 +37,12 @@ public class TelaPrincipal extends javax.swing.JFrame {
         jDesktopPane1 = new javax.swing.JDesktopPane();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
+        jMenu4 = new javax.swing.JMenu();
+        jMenuItem1 = new javax.swing.JMenuItem();
+        jMenuItem2 = new javax.swing.JMenuItem();
+        jMenuItem3 = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
+        jMenu3 = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Barbearia");
@@ -46,11 +58,33 @@ public class TelaPrincipal extends javax.swing.JFrame {
             .addGap(0, 629, Short.MAX_VALUE)
         );
 
-        jMenu1.setText("File");
+        jMenu1.setText("Geral");
+
+        jMenu4.setText("Usuários");
+
+        jMenuItem1.setText("Cadastrar");
+        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem1ActionPerformed(evt);
+            }
+        });
+        jMenu4.add(jMenuItem1);
+
+        jMenuItem2.setText("Alterar e Excluir");
+        jMenu4.add(jMenuItem2);
+
+        jMenuItem3.setText("Pesquisar");
+        jMenu4.add(jMenuItem3);
+
+        jMenu1.add(jMenu4);
+
         jMenuBar1.add(jMenu1);
 
-        jMenu2.setText("Edit");
+        jMenu2.setText("Relatórios");
         jMenuBar1.add(jMenu2);
+
+        jMenu3.setText("Outros");
+        jMenuBar1.add(jMenu3);
 
         setJMenuBar(jMenuBar1);
 
@@ -68,6 +102,12 @@ public class TelaPrincipal extends javax.swing.JFrame {
         setSize(new java.awt.Dimension(1266, 689));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+        
+        controller.chamarTelaUsuarioCadastrar();
+        
+    }//GEN-LAST:event_jMenuItem1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -104,10 +144,23 @@ public class TelaPrincipal extends javax.swing.JFrame {
         });
     }
 
+    public JDesktopPane getjDesktopPane1() {
+        return jDesktopPane1;
+    }
+
+    public void setjDesktopPane1(JDesktopPane jDesktopPane1) {
+        this.jDesktopPane1 = jDesktopPane1;
+    }
+   
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JDesktopPane jDesktopPane1;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
+    private javax.swing.JMenu jMenu3;
+    private javax.swing.JMenu jMenu4;
     private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenuItem jMenuItem1;
+    private javax.swing.JMenuItem jMenuItem2;
+    private javax.swing.JMenuItem jMenuItem3;
     // End of variables declaration//GEN-END:variables
 }

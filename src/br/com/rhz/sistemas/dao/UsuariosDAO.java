@@ -6,6 +6,7 @@
 package br.com.rhz.sistemas.dao;
 
 import br.com.rhz.sistemas.model.Usuarios;
+import br.com.rhz.sistemas.util.Data;
 import br.com.rhz.sistemas.util.FabricaDeConexao;
 import br.com.rhz.sistemas.util.Texto;
 import java.sql.Connection;
@@ -22,7 +23,48 @@ import javax.swing.JOptionPane;
  */
 public class UsuariosDAO {
 
-    public Usuarios verificarSeUsuarioExiste(Usuarios usuario) {
+    public void cadastrarUsuario(Usuarios usuario) {
+
+        System.out.println("Monitoramento - Classe UsuariosDAO - Método cadastrarUsuario()");
+
+        //VALIDACAO
+        if (Texto.vazioOuNulo(usuario.getUsuario()) || Texto.vazioOuNulo(usuario.getSenha())) {
+            JOptionPane.showMessageDialog(null, "Campo obrigatório não preenchido!");
+        } else {
+
+            try {
+
+                Connection conexao = FabricaDeConexao.abrirConexao();
+
+                PreparedStatement pst = null;
+
+                String sql = " INSERT INTO t_usuarios ";
+                sql += " (usuario, senha, nome, data_cadastro, quem_cadastrou) ";
+                sql += " VALUES (?, ?, ?, ?, ?);";
+
+                pst = conexao.prepareStatement(sql);
+                pst.setString(1, usuario.getUsuario());
+                pst.setString(2, usuario.getSenha());
+                pst.setString(3, usuario.getNome());
+                pst.setDate(4, Data.ConvertDataFormParaBanco(usuario.getData_cadastro()));
+                pst.setString(5, usuario.getQuem_cadastrou());
+
+                pst.executeUpdate();
+
+                JOptionPane.showMessageDialog(null, "Usuário cadastrado com sucesso!");
+
+            } catch (SQLException ex) {
+                JOptionPane.showMessageDialog(null, ex);
+                Logger.getLogger(UsuariosDAO.class.getName()).log(Level.SEVERE, null, ex);
+            } finally {
+                FabricaDeConexao.fecharConexao();
+            }
+        }
+    }
+
+    public Usuarios autenticarUsuario(Usuarios usuario) {
+
+        System.out.println("Monitoramento - Classe UsuariosDAO - Método autenticarUsuario()");
 
         //VALIDACAO
         if (Texto.vazioOuNulo(usuario.getUsuario()) || Texto.vazioOuNulo(usuario.getSenha())) {
@@ -50,16 +92,14 @@ public class UsuariosDAO {
                 Usuarios usu = new Usuarios();
 
                 if (rs.next()) {
-                    usu = CarregarResultSet(rs);
+                    usu = carregarResultSet(rs);
                     return usu;
                 } else {
                     JOptionPane.showMessageDialog(null, "Usuário ou Senha inválidos!");
                 }
 
-//            if (usu == null) {;
-//                JOptionPane.showMessageDialog(null, "Usuário ou Senha inválidos!");
-//            }
             } catch (SQLException ex) {
+                JOptionPane.showMessageDialog(null, ex);
                 Logger.getLogger(UsuariosDAO.class.getName()).log(Level.SEVERE, null, ex);
             } finally {
                 FabricaDeConexao.fecharConexao();
@@ -68,7 +108,7 @@ public class UsuariosDAO {
         return null;
     }
 
-    public Usuarios CarregarResultSet(ResultSet rs) throws SQLException {
+    public Usuarios carregarResultSet(ResultSet rs) throws SQLException {
 
         Usuarios usuario = new Usuarios();
 
@@ -79,7 +119,6 @@ public class UsuariosDAO {
         usuario.setQuem_cadastrou(rs.getString("quem_cadastrou"));
         usuario.setData_alteracao(rs.getDate("data_alteracao"));
         usuario.setQuem_alterou(rs.getString("quem_alterou"));
-        usuario.setPermissao(rs.getInt("permissao"));
 
         return usuario;
 

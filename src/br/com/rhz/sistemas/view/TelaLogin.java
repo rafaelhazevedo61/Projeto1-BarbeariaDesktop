@@ -5,7 +5,7 @@
  */
 package br.com.rhz.sistemas.view;
 
-import br.com.rhz.sistemas.controller.LoginController;
+import br.com.rhz.sistemas.controller.TelaLoginController;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
@@ -15,14 +15,14 @@ import javax.swing.JTextField;
  */
 public class TelaLogin extends javax.swing.JFrame {
 
-    private final LoginController controller;
+    private final TelaLoginController controller;
 
     /**
      * Creates new form TelaLogin
      */
     public TelaLogin() {
         initComponents();
-        controller = new LoginController(this);
+        controller = new TelaLoginController(this);
     }
 
     /**

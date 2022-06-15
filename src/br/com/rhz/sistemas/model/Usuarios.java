@@ -5,7 +5,9 @@
  */
 package br.com.rhz.sistemas.model;
 
-import java.sql.Date;
+import java.util.Date;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 
 /**
  *
@@ -21,14 +23,26 @@ public class Usuarios {
     private String quem_cadastrou;
     private Date data_alteracao;
     private String quem_alterou;
-    private int permissao;
 
     public Usuarios() {
     }
-    
+
     public Usuarios(String usuario, String senha) {
         this.usuario = usuario;
         this.senha = senha;
+    }
+
+    public Usuarios(String usuario, String senha, String nome) {
+
+        SimpleDateFormat dtf = new SimpleDateFormat("yyyy/MM/dd");
+        Calendar calendar = Calendar.getInstance();
+        Date dataHoje = calendar.getTime();
+
+        this.usuario = usuario;
+        this.senha = senha;
+        this.nome = nome;
+        this.quem_cadastrou = "dev";
+        this.data_cadastro = dataHoje;
     }
 
     public int getCodusuario() {
@@ -95,19 +109,9 @@ public class Usuarios {
         this.quem_alterou = quem_alterou;
     }
 
-    public int getPermissao() {
-        return permissao;
-    }
-
-    public void setPermissao(int permissao) {
-        this.permissao = permissao;
-    }
-
     @Override
     public String toString() {
-        return "Usuarios{" + "codusuario=" + codusuario + ", usuario=" + usuario + ", senha=" + senha + ", nome=" + nome
-                + ", data_cadastro=" + data_cadastro + ", quem_cadastrou=" + quem_cadastrou + ", data_alteracao=" + data_alteracao
-                + ", quem_alterou=" + quem_alterou + ", permissao=" + permissao + '}';
+        return "Usuarios{" + "codusuario=" + codusuario + ", usuario=" + usuario + ", senha=" + senha + ", nome=" + nome + ", data_cadastro=" + data_cadastro + ", quem_cadastrou=" + quem_cadastrou + ", data_alteracao=" + data_alteracao + ", quem_alterou=" + quem_alterou + '}';
     }
 
 }
