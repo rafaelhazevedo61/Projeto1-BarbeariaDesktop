@@ -1,6 +1,19 @@
 # Projeto1-BarbeariaDesktop
 ________________________________________________________________________________________________________
 
+> V.1.4.0 - 15/06/2022
+
+- Criada a classe TelaServicosCadastrarController
+- Criada a classe ServicosDAO
+- Criada a classe Servicos
+- Renomeada a classe TelaCadastrarUsuarioController para TelaUsuarioCadastrarController
+- Criado o método chamarTelaServicosCadastrar() na classe TelaPrincipalController
+- Criado o método cadastrarServico() na classe TelaServicosCadastrarController
+- Criado o método cadastrarServico() na classe ServicosDAO
+- Criado o método verificarUsuarioExiste() na classe UsuariosDAO
+- Criada a view TelaServicosCadastrar
+- Feita configuração do cadastro de serviço
+
 > V.1.3.0 - 14/06/2022
 - Renomeada a classe LoginController para TelaLoginController
 - Renomeado o método verificarSeUsuarioExiste() na classe UsuariosDAO para autenticarUsuario()
