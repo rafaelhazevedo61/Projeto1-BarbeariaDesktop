@@ -14,37 +14,44 @@ import javax.swing.JOptionPane;
  *
  * @author Rafael
  */
-public class TelaCadastrarUsuarioController {
+public class TelaUsuarioCadastrarController {
 
     private final TelaUsuarioCadastrar view;
 
     //CONSTRUTOR
-    public TelaCadastrarUsuarioController(TelaUsuarioCadastrar view) {
+    public TelaUsuarioCadastrarController(TelaUsuarioCadastrar view) {
         this.view = view;
     }
-    
-    public void cadastrarUsuario(){
-        
+
+    public void cadastrarUsuario() {
+
         String nome = view.getjTextFieldUsuarioNome().getText();
         String usuario = view.getjTextFieldUsuario().getText();
         String senha = view.getjPasswordFieldSenha().getText();
         String confirmarSenha = view.getjPasswordFieldConfirmaSenha().getText();
-        
-        if (senha.isEmpty() || confirmarSenha.isEmpty()){
+
+        if (senha.isEmpty() || confirmarSenha.isEmpty()) {
             JOptionPane.showMessageDialog(null, "Campo de senha e/ou confirmar senha está em branco!");
             throw new IllegalArgumentException("Campo de senha e/ou confirmar senha está em branco!");
         }
-        
-        if (!senha.equals(confirmarSenha)){
+
+        if (!senha.equals(confirmarSenha)) {
             JOptionPane.showMessageDialog(null, "Campo de senha e confirmar senha não estão iguais!");
             throw new IllegalArgumentException("Campo de senha e confirmar senha não estão iguais!");
         }
-        
+
         Usuarios novoUsuario = new Usuarios(usuario, senha, nome);
-        
+
         UsuariosDAO dao = new UsuariosDAO();
-        dao.cadastrarUsuario(novoUsuario);
-        
+
+        boolean usuarioExiste = dao.verificarUsuarioExiste(usuario);
+
+        if (usuarioExiste != true) {
+            dao.cadastrarUsuario(novoUsuario);
+        } else {
+            JOptionPane.showMessageDialog(null, "Usuário já cadastrado! Por favor, tente outro.");
+        }
+
     }
-    
+
 }

@@ -6,6 +6,7 @@
 package br.com.rhz.sistemas.controller;
 
 import br.com.rhz.sistemas.view.TelaPrincipal;
+import br.com.rhz.sistemas.view.servicos.TelaServicosCadastrar;
 import br.com.rhz.sistemas.view.usuarios.TelaUsuarioCadastrar;
 
 /**
@@ -22,11 +23,15 @@ public class TelaPrincipalController {
     }
     
     public void chamarTelaUsuarioCadastrar(){
-        
         TelaUsuarioCadastrar tela = new TelaUsuarioCadastrar();
         tela.setVisible(true);
         view.getjDesktopPane1().add(tela);
-        
+    }
+    
+    public void chamarTelaServicosCadastrar(){
+        TelaServicosCadastrar tela = new TelaServicosCadastrar();
+        tela.setVisible(true);
+        view.getjDesktopPane1().add(tela);
     }
     
 }

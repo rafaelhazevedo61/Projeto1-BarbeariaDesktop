@@ -23,6 +23,38 @@ import javax.swing.JOptionPane;
  */
 public class UsuariosDAO {
 
+    public boolean verificarUsuarioExiste(String usuario) {
+
+        System.out.println("Monitoramento - Classe UsuariosDAO - Método verificarUsuarioExiste()");
+
+        try {
+
+            Connection conexao = FabricaDeConexao.abrirConexao();
+
+            PreparedStatement pst = null;
+            ResultSet rs = null;
+
+            String sql = "select * from t_usuarios where usuario=?";
+
+            pst = conexao.prepareStatement(sql);
+
+            pst.setString(1, usuario);
+
+            rs = pst.executeQuery();
+
+            while (rs.next()) {
+                return true;
+            }
+
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, ex);
+            Logger.getLogger(UsuariosDAO.class.getName()).log(Level.SEVERE, null, ex);
+        } finally {
+            FabricaDeConexao.fecharConexao();
+        }
+        return false;
+    }
+
     public void cadastrarUsuario(Usuarios usuario) {
 
         System.out.println("Monitoramento - Classe UsuariosDAO - Método cadastrarUsuario()");

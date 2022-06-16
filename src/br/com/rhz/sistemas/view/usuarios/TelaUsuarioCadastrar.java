@@ -5,7 +5,7 @@
  */
 package br.com.rhz.sistemas.view.usuarios;
 
-import br.com.rhz.sistemas.controller.TelaCadastrarUsuarioController;
+import br.com.rhz.sistemas.controller.TelaUsuarioCadastrarController;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
@@ -15,14 +15,14 @@ import javax.swing.JTextField;
  */
 public class TelaUsuarioCadastrar extends javax.swing.JInternalFrame {
 
-    private final TelaCadastrarUsuarioController controller;
+    private final TelaUsuarioCadastrarController controller;
     
     /**
      * Creates new form TelaPrincipal
      */
     public TelaUsuarioCadastrar() {
         initComponents();
-        controller = new TelaCadastrarUsuarioController(this);
+        controller = new TelaUsuarioCadastrarController(this);
         
     }
 
@@ -45,6 +45,11 @@ public class TelaUsuarioCadastrar extends javax.swing.JInternalFrame {
         jLabel1 = new javax.swing.JLabel();
         jTextFieldUsuarioNome = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
+
+        setClosable(true);
+        setIconifiable(true);
+        setTitle("Usuário - Cadastrar");
+        setToolTipText("");
 
         jPanel1.setBackground(new java.awt.Color(102, 153, 255));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
