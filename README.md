@@ -2,6 +2,7 @@
 ________________________________________________________________________________________________________
 
 > V.1.4.0 - 15/06/2022
+- Resumo: Criada funcionalidade de cadastro de serviço e otimizada a de autenticação de usuário
 
 - Criada a classe TelaServicosCadastrarController
 - Criada a classe ServicosDAO
@@ -15,6 +16,8 @@ ________________________________________________________________________________
 - Feita configuração do cadastro de serviço
 
 > V.1.3.0 - 14/06/2022
+- Resumo: Criada funcionalidade de cadastro de usuário
+
 - Renomeada a classe LoginController para TelaLoginController
 - Renomeado o método verificarSeUsuarioExiste() na classe UsuariosDAO para autenticarUsuario()
 - Criada a classe TelaCadastrarUsuarioController
@@ -27,6 +30,8 @@ ________________________________________________________________________________
 - Feita configuração do cadastro de usuario
 
 > V.1.2.0 - 26/04/2022
+- Resumo: Criada funcionalidade de autenticação de usuário
+
 - Corrigido o nome da base de dados que havia sido configurado na clase de conexão
 - Trocado o campo de jTextFieldSenha pelo campo jPasswordFieldSenha
 - Criada a classe de LoginController.java no pacote controller
